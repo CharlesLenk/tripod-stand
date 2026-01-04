@@ -1,13 +1,13 @@
 include <openscad-utilities/common.scad>
 
-tripod_stand(40);
+tripod_stand(50);
 
 module tripod_stand(width) {
-	leg_d = 5;
+	leg_d = 6;
 	width = width - leg_d;
 	height = 1.5 * width;
 	echo(str("\nHeight = ", height, "\n"));
-	
+
 	top_r = leg_d/1.5;
 	leg_arch_angle = 30;
 	leg_arch_hypotenuse = top_r * sin((180 - leg_arch_angle)/2) / sin(leg_arch_angle/2);
@@ -33,7 +33,7 @@ module tripod_stand(width) {
 	}
 
 	module leg() {
-		leg_tilt_angle = atan(width/height);
+		leg_tilt_angle = 35;
 		rotate([leg_tilt_angle, 0, 0]) {
 			translate([opposite, 0]) {
 				rotate([0, -leg_arch_angle/2, 0]) {
