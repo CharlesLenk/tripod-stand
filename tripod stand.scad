@@ -1,14 +1,19 @@
 include <openscad-utilities/common.scad>
 
-tripod_stand(40);
+default_width = 50;
+default_wire_d = 6;
 
-module tripod_stand(width) {
-	leg_d = 5;
-	width = width - leg_d;
+function default_width() = default_width;
+function default_wire_d() = default_wire_d;
+
+tripod_stand();
+
+module tripod_stand(width = default_width, wire_d = default_wire_d) {
+	width = width - wire_d;
 	height = 1.5 * width;
 	echo(str("\nHeight = ", height, "\n"));
-	
-	top_r = leg_d/1.5;
+
+	top_r = wire_d/1.5;
 	leg_arch_angle = 30;
 	leg_arch_hypotenuse = top_r * sin((180 - leg_arch_angle)/2) / sin(leg_arch_angle/2);
 
@@ -19,7 +24,7 @@ module tripod_stand(width) {
 	cut_depth = 1;
 	leg_rotation_angle = 240;
 	xy_cut(size = 2 * width) {
-		translate([0, 0, leg_d/2 - cut_depth]) {
+		translate([0, 0, wire_d/2 - cut_depth]) {
 			leg();
 			translate([opposite, 0])
 				rotate(leg_rotation_angle)
@@ -33,7 +38,7 @@ module tripod_stand(width) {
 	}
 
 	module leg() {
-		leg_tilt_angle = atan(width/height);
+		leg_tilt_angle = 35;
 		rotate([leg_tilt_angle, 0, 0]) {
 			translate([opposite, 0]) {
 				rotate([0, -leg_arch_angle/2, 0]) {
@@ -41,7 +46,7 @@ module tripod_stand(width) {
 						rotate([90, 0, 0]) {
 							rotate_extrude(angle = 180 - leg_arch_angle) {
 								translate([top_r, 0, 0]) {
-									circle(d = leg_d);
+									circle(d = wire_d);
 								}
 							}
 						}
@@ -50,14 +55,14 @@ module tripod_stand(width) {
 			}
 			translate([opposite, 0]) {
 				rotate([0, -leg_arch_angle/2, 0]) {
-					sphere(d = leg_d);
-					cylinder(d = leg_d, h = hypotenuse - leg_arch_hypotenuse);
+					sphere(d = wire_d);
+					cylinder(d = wire_d, h = hypotenuse - leg_arch_hypotenuse);
 				}
 			}
 			translate([-opposite, 0]) {
 				rotate([0, leg_arch_angle/2, 0]) {
-					sphere(d = leg_d);
-					cylinder(d = leg_d, h = hypotenuse - leg_arch_hypotenuse);
+					sphere(d = wire_d);
+					cylinder(d = wire_d, h = hypotenuse - leg_arch_hypotenuse);
 				}
 			}
 		}
