@@ -1,31 +1,27 @@
-# Project Name
+# Tripod Stand
 
-Project description
-
-Printed images
+A wireframe tripod stand for displaying small objects like air plants.
 
 ![](images/with_plant.jpg)
 ![](images/big_and_small.jpg)
 
 # Printing
 
-PLA filament is recommended because it's low cost and handles overhangs well.
+This model is designed to be printed on a standard consumer grade FDM printer with a 0.4mm nozzle and 0.2mm layer height. PLA filament is recommended because it's low cost and handles overhangs well.
 
-PETG or similar filament is recommended. PLA is not recommended because it loosens more over time when under tension, making it more likely to fail.
+While this model doesn't have any true overhangs, supports are required to stabilize the print or it will detach from the print bed. For the cleanest results, use snug supports and paint the supports on only the bottom legs of the model.
 
-This model is designed to be printed on a standard consumer grade FDM printer with a 0.4mm nozzle and 0.2mm layer height.
-
-[Additional print settings notes (e.g. supports)]
+![](images/supports.png)
 
 # Models in this Project
 
 |Image|Name|File|Description|
 |-|-|-|-|
-|![](images/image.jpg)|`example_model`|`example.scad`|An example for this table.|
-
-# Assembly
+|![](images/model.png)|`tripod_stand`|`tripod stand.scad`|The tripod stand.|
 
 # Dimensions
+
+This design is parametric. The included export script will export the stand in 50mm, 65mm, and 80mm sizes by default. The size indicates the max width of the legs.
 
 # Project Setup
 
