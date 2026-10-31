@@ -2,6 +2,8 @@
 
 A wireframe tripod stand for displaying small objects like air plants.
 
+I saw a welded wire version of this stand for sale, but I wanted something that I could easily adjust to different sizes and shapes of plant. The model is parametric, and the size, angles, and wire width can all be adjusted independently.
+
 ![](images/with_plant.jpg)
 ![](images/big_and_small.jpg)
 
